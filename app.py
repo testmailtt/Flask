@@ -27,7 +27,8 @@ def home():
 
 @app.route('/download', methods=['POST'])
 def download():
-    url = request.form.get('url')
+    data = request.get_json()
+    url = data.get('url')
     if not url:
         return 'No URL provided.', 400
 
