@@ -51,6 +51,25 @@ def download():
 
     return 'Audio downloaded and saved to the database.'
 
+@app.route('/dd', methods=['POST'])
+def download():
+    # YouTube video URL
+    video_url = "https://www.youtube.com/watch?v=_SWwZq-K1O0"
+
+    # Download audio using youtube-dl
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'wav',
+            'preferredquality': '192',
+        }],
+        'outtmpl': 'audio.wav',  # Output file name
+    }
+
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([video_url])
+
 @app.route('/audio/<int:audio_id>')
 def serve_audio(audio_id):
     audio = session.query(Audio).get(audio_id)
