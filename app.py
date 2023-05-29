@@ -52,7 +52,7 @@ def download():
     return 'Audio downloaded and saved to the database.'
 
 @app.route('/dd', methods=['POST'])
-def download():
+def dd():
     # YouTube video URL
     video_url = "https://www.youtube.com/watch?v=_SWwZq-K1O0"
 
