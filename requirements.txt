@@ -4,4 +4,4 @@ SQLAlchemy
 speechrecognition
 youtube_transcript_api
 pydub
-pocketsphinx
+# pocketsphinx
