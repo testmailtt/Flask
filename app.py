@@ -2,6 +2,7 @@ from flask import Flask, request, send_file, jsonify
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from pydub import AudioSegment
 import youtube_dl
 
 app = Flask(__name__)
@@ -34,7 +35,7 @@ def download():
         'format': 'bestaudio/best',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
+            'preferredcodec': 'wav',
             'preferredquality': '192',
         }],
     }
