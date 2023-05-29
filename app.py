@@ -4,6 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from pydub import AudioSegment
 import youtube_dl
+import speech_recognition as sr
 
 app = Flask(__name__)
 Base = declarative_base()
